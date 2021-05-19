@@ -10,8 +10,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Getter
-@Setter
+
+
 public class Book {
 
     @Id
@@ -29,5 +29,35 @@ public class Book {
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     private Library library;
 
+    public int getId () {
+        return id;
+    }
 
+    public void setId (int id) {
+        this.id = id;
+    }
+
+    public String getName () {
+        return name;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    public int getStatus () {
+        return status;
+    }
+
+    public void setStatus (int status) {
+        this.status = status;
+    }
+
+    public Library getLibrary () {
+        return library;
+    }
+
+    public void setLibrary (Library library) {
+        this.library = library;
+    }
 }

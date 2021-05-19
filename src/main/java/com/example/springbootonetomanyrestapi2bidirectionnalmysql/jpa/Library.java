@@ -12,8 +12,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+
+
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class Library {
     @Min(value = 1,message = "Please chose a status")
     private int status;
 
-    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "library", cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Book> books = new HashSet<> ();
 
     public Set<Book> getBooks () {
@@ -40,4 +40,27 @@ public class Library {
     }
 
 
+    public int getId () {
+        return id;
+    }
+
+    public void setId (int id) {
+        this.id = id;
+    }
+
+    public String getName () {
+        return name;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    public int getStatus () {
+        return status;
+    }
+
+    public void setStatus (int status) {
+        this.status = status;
+    }
 }
